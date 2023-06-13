@@ -116,11 +116,17 @@ img.offcanvas-img{
 
 .closer{
 	position: absolute;
-	top: 0px;
-	right: 5px;
-	margin: .5em;
+	top: 5px;
+	right: 4px;
+	margin: 2em;
 }
 
+.icon{
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	margin: 2em;
+}
 
 .donate{
 	background-color: #0061A2;
@@ -144,7 +150,7 @@ img.offcanvas-img{
 
 .input-select{
 	display: flex;
-	min-width: 30em;
+	min-width: 25em;
 	margin-bottom: 2em;
 	justify-content: center;
 	align-items: center;
@@ -152,7 +158,7 @@ img.offcanvas-img{
 
 .input-textarea{
 	display: flex;
-	min-width: 30em;
+	min-width: 25em;
 	margin-bottom: 2em;
 	justify-content: center;
 	align-items: center;
@@ -181,13 +187,14 @@ img.offcanvas-img{
 .input-textarea{
 	position: relative;
 	width: 100%;
+	max-width: 25em;
 }
 
 .input-textarea > label[for="textarea"]{
 	position: absolute;
 	top: -13px;
-	right: 52%;
-	width: 10em;
+	right: 50%;
+	width: 9.5em;
 	background-color: white;
 	font-size: larger;
 	color: #0061A2;
@@ -218,7 +225,7 @@ img.offcanvas-img{
 	width: 10em;
 	background-color: white;
 	width: 9em;
-	right: 75%;
+	right: 70%;
 	top: -15px;
 	color: #0061A2;
 }
@@ -235,7 +242,7 @@ img.offcanvas-img{
 	border: 2px solid #0061A2;
 	border-radius: 8px;
 	width: 25%;
-	min-width: 30em;
+	min-width: 25em;
 	padding: 12px;
 }
 
@@ -247,4 +254,10 @@ img.offcanvas-img{
 
 .donate-head > h5{
 	margin-inline: auto;
+	margin-right: 150px;
+}
+
+
+.donate-head > img{
+	margin-left: 40px;
 }

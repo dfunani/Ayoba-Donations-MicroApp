@@ -185,6 +185,7 @@ function getMsisdn() {
   return msisdn;
 }
 
+
 function getSelfJid() {
   var jid = Ayoba.getSelfJid();
   document.getElementById("selfjidText").textContent = jid;
@@ -359,4 +360,9 @@ function onFileRetrievedResponse(responseCode, filePath) {
     .concat(" - ")
     .concat(filePath);
   document.getElementById("pictureRetrieved").src = filePath;
+}
+
+function startPayment(amount, currency, description){
+  Ayoba.startPayment(amount, currency, description)
+  // console.log(amount, currency, description)
 }

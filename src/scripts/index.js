@@ -19,6 +19,8 @@ Have a say in their own lives`,
     last_updated: "22/02/2022",
   },
 ];
+
+
 window.onload = (event) => {
   const scroller = document.querySelector(".scrolling-wrapper");
   CHARITIES.forEach((element) => {
@@ -71,7 +73,10 @@ const createCharity = (obj) => {
     <div class="card mb-3 border-0 d-flex">
     <div class="abs-card d-flex justify-content-center align-items-center">
     <img src="src/assets/dummy_npo.png" class="card-img-top offcanvas-img" alt="...">
-    <button type="button" class="btn-close text-reset closer" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <img src="src/assets/logo.svg" class="icon" alt="...">
+    <button type="button" onclick="back('${
+      obj.title
+    }')" class="btn-close text-reset closer" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
   <div class="card-body border-0 d-flex flex-column desc">
     <h5 class="card-title fs-1 mt-5" id="title_${obj.title}">${obj.title}</h5>
@@ -84,8 +89,10 @@ const createCharity = (obj) => {
     <div class="fixed-bottom" id="fixed_${obj.title}" hidden>
         <div class="donate_overlay">
             <div class="donate-head d-flex justify-content-between align-items-center">
-                <img onclick="back('${obj.title}')" src="src/assets/arrow-left.svg" alt="...">
-                <h5>Donate to Call Care</h5>
+                <img onclick="back('${
+                  obj.title
+                }')" src="src/assets/arrow-left.svg" alt="...">
+                <h5>Donate to ${obj.title}</h5>
             </div>
         <div class="input-select input-currency-select">
         <div class="dropdown">
@@ -112,8 +119,8 @@ const createCharity = (obj) => {
         </div>
         <div class="input-btn">
         <button type="submit" id="payment_${
-            obj.title
-          }" class="fs-5 text-light border-0 donate">Continue to payments</button>
+          obj.title
+        }" class="fs-5 text-light border-0 donate" onclick="startPayment(100, 'XAF', 'Test payment')">Continue to payments</button>
         </div>    
         </div>
     </div>
@@ -124,12 +131,23 @@ const createCharity = (obj) => {
 };
 
 const offcanvas = (title) => {
-  const donate = document.getElementById("donate_" + title);
-  const card = document.getElementById("card_" + title);
-  const titles = document.getElementById("title_" + title);
-  const fixed_title = document.getElementById("fixed_" + title);
+    const donate = document.getElementById("donate_" + title);
+const card = document.getElementById("card_" + title);
+const titles = document.getElementById("title_" + title);
+const fixed_title = document.getElementById("fixed_" + title);
   donate.hidden ^= true;
   fixed_title.hidden ^= true;
   card.hidden ^= true;
   titles.hidden ^= true;
+};
+
+const back = (title) => {
+    const donate = document.getElementById("donate_" + title);
+const card = document.getElementById("card_" + title);
+const titles = document.getElementById("title_" + title);
+const fixed_title = document.getElementById("fixed_" + title);
+  donate.hidden = false;
+  fixed_title.hidden = true;
+  card.hidden = false;
+  titles.hidden = false;
 };
