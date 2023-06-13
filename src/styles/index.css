@@ -1,0 +1,250 @@
+.ayoba-header {
+  color: #0061a1;
+}
+
+.search-icon {
+    max-width: 475px;
+    border-radius: 5em;
+}
+
+.search-icon > span{
+    border-radius: 50px;
+}
+
+.search-icon > input{
+    border-radius: 50px;
+}
+
+.scrolling-wrapper{
+	overflow-x: auto;
+}
+
+body{
+	background-color: black;
+	color: #fff;
+	font-family: 'system-ui';
+}
+
+
+.card-block{
+	background-color: #fff;
+	background-position: center;
+	background-size: cover;
+	transition: all 0.2s ease-in-out !important;
+	border-radius: 24px;
+	&:hover{
+		transform: translateY(-5px);
+		box-shadow: none;
+		opacity: 0.9;
+	};
+
+}
+
+.card-body{
+    border-width: 0px 1px 1px 1px;
+    border-color: #d8dadb;
+    border-style: solid;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+	position: relative;
+	margin-top: -30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+img.card-img-top{
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+	max-height: 60vh;
+}
+
+.col-5{
+	min-width: 20em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+
+::-webkit-scrollbar{
+	width: 1px;
+}
+::-webkit-scrollbar-track{
+	display: none;
+}
+
+
+
+.logo{
+	position: absolute;
+	top: 0px;
+}
+
+h5.card-title{
+	margin-top: 3em;
+}
+
+.offcanvas{
+	min-height: 100vh;
+	overflow-y: auto;
+	
+}
+
+.offcanvas-body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+img.offcanvas-img{
+	min-width: 25em;
+	max-width: 30em;
+	border-radius: 2%;
+	margin-top: .5em;
+}
+
+.desc{
+	max-width: 30em;
+	margin: auto;
+	text-align: center;
+}
+
+.abs-card{
+	position: relative;
+}
+
+.closer{
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	margin: .5em;
+}
+
+
+.donate{
+	background-color: #0061A2;
+	border-radius: 8px;
+	border: #0061A2 solid 1px;
+	width: 188px;
+	height: 46px;
+	min-width: 250px;
+}
+
+.donate_overlay{
+	height: 50vh;
+	border-radius: 8px;
+	width: 100%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.input-select{
+	display: flex;
+	min-width: 30em;
+	margin-bottom: 2em;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-textarea{
+	display: flex;
+	min-width: 30em;
+	margin-bottom: 2em;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.input-currency-select{
+	border: 2px solid #0061A2;
+	border-radius: 8px;
+}
+
+
+.dropdown > a{
+	display: flex;
+	height: 2em;
+	justify-content: center;
+	align-items: center;
+	margin-inline: .5em;
+	margin-bottom: 7px;
+}
+
+.input-currency{
+	position: relative;
+	width: 100%;
+}
+
+.input-textarea{
+	position: relative;
+	width: 100%;
+}
+
+.input-textarea > label[for="textarea"]{
+	position: absolute;
+	top: -13px;
+	right: 52%;
+	width: 10em;
+	background-color: white;
+	font-size: larger;
+	color: #0061A2;
+}
+
+.input-currency > input::placeholder{
+	font-size: x-large;
+	color: #0061A2;
+}
+
+.tag{
+	width: 25%;
+	min-width: 30em;
+	margin-top: -30px;
+	margin-bottom: 30px;
+	color: #595959;
+	;
+}
+
+.input-currency > input:focus{
+	outline: none !important;
+}
+
+.input-currency > label[for="currency"]{
+	position: absolute;
+	top: -16px;
+	right: 130%;
+	width: 10em;
+	background-color: white;
+	width: 9em;
+	right: 75%;
+	top: -15px;
+	color: #0061A2;
+}
+
+.input-currency > input{
+	margin-block: 3px;
+	border: none;
+	height: 48px;
+	width: 100%;
+}
+
+.input-textarea > textarea{
+	height: 108px;
+	border: 2px solid #0061A2;
+	border-radius: 8px;
+	width: 25%;
+	min-width: 30em;
+	padding: 12px;
+}
+
+.donate-head{
+	color: #5C5C5C;
+	min-width: 30em;
+	margin-bottom: 1em;
+}
+
+.donate-head > h5{
+	margin-inline: auto;
+}
