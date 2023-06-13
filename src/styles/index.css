@@ -150,7 +150,7 @@ img.offcanvas-img{
 
 .input-select{
 	display: flex;
-	min-width: 25em;
+	min-width: 20em;
 	margin-bottom: 2em;
 	justify-content: center;
 	align-items: center;
@@ -158,7 +158,6 @@ img.offcanvas-img{
 
 .input-textarea{
 	display: flex;
-	min-width: 25em;
 	margin-bottom: 2em;
 	justify-content: center;
 	align-items: center;
@@ -187,13 +186,12 @@ img.offcanvas-img{
 .input-textarea{
 	position: relative;
 	width: 100%;
-	max-width: 25em;
 }
 
 .input-textarea > label[for="textarea"]{
 	position: absolute;
 	top: -13px;
-	right: 50%;
+	right: 42%;
 	width: 9.5em;
 	background-color: white;
 	font-size: larger;
@@ -211,7 +209,6 @@ img.offcanvas-img{
 	margin-top: -30px;
 	margin-bottom: 30px;
 	color: #595959;
-	;
 }
 
 .input-currency > input:focus{
@@ -220,12 +217,9 @@ img.offcanvas-img{
 
 .input-currency > label[for="currency"]{
 	position: absolute;
-	top: -16px;
-	right: 130%;
-	width: 10em;
 	background-color: white;
 	width: 9em;
-	right: 70%;
+	right: 60%;
 	top: -15px;
 	color: #0061A2;
 }
@@ -242,7 +236,8 @@ img.offcanvas-img{
 	border: 2px solid #0061A2;
 	border-radius: 8px;
 	width: 25%;
-	min-width: 25em;
+	min-width: 20em;
+	max-width: 20em;
 	padding: 12px;
 }
 
@@ -254,10 +249,10 @@ img.offcanvas-img{
 
 .donate-head > h5{
 	margin-inline: auto;
-	margin-right: 150px;
+	margin-right: 160px;
 }
 
 
 .donate-head > img{
-	margin-left: 40px;
+	margin-left: 85px;
 }
