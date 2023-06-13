@@ -112,8 +112,9 @@ img.offcanvas-img{
 
 .abs-card{
 	position: relative;
-	max-width: 30em;
+	max-width: 25em;
 	margin: auto;
+	width: 100%;
 }
 
 .closer{
