@@ -17,6 +17,7 @@ class AyobaStub {
     this.triggerMediaSentResponse = this.triggerMediaSentResponse;
     this.triggerLocationSentResponse = this.triggerLocationSentResponse;
     this.triggerNicknameChanged = this.triggerNicknameChanged;
+    this.startPayment = this.startPayment;
   }
 
   finish() {
@@ -95,5 +96,9 @@ class AyobaStub {
 
   triggerNicknameChanged() {
     onNicknameChanged("Delali Funani");
+  }
+
+  startPayment(amount, currency, description) {
+    return;
   }
 }

@@ -362,7 +362,7 @@ function onFileRetrievedResponse(responseCode, filePath) {
   document.getElementById("pictureRetrieved").src = filePath;
 }
 
-function startPayment(amount, currency, description){
+function startPaymentOverlay(){
+  const [amount, currency, description] = [100, "ZAR", "Donation Testing"]
   Ayoba.startPayment(amount, currency, description)
-  // console.log(amount, currency, description)
 }
