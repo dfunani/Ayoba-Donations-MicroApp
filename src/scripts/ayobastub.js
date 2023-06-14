@@ -76,26 +76,27 @@ class AyobaStub {
   }
 
   triggerProfileChanged() {
-    onProfileChanged(
-      "test name",
-      "https://i.ytimg.com/vi/d5PP4vIX7P8/maxresdefault.jpg"
-    );
+    // onProfileChanged(
+    //   "test name",
+    //   "https://i.ytimg.com/vi/d5PP4vIX7P8/maxresdefault.jpg"
+    // );
+    return
   }
 
   triggerPresenceChanged() {
-    onPresenceChanged("test presence");
+    return
   }
 
   triggerMediaSentResponse() {
-    onMediaSentResponse(1);
+    return
   }
 
   triggerLocationSentResponse() {
-    onLocationSentResponse(1);
+    return
   }
 
   triggerNicknameChanged() {
-    onNicknameChanged("Delali Funani");
+    return
   }
 
   startPayment(amount, currency, description) {
