@@ -29,7 +29,7 @@ function getAyoba() {
 
 
 function startPayment() {
-    var pm = 'ozow';
+    var pm = 'Ozow';
     var currency = "ZAR";
     var amount = 1;
     var description = 'donation';
