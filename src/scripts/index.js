@@ -121,6 +121,9 @@ const createCharity = (obj) => {
         <button type="submit" id="payment_${
           obj.title
         }" class="fs-5 text-light border-0 donate" onclick="startPaymentOverlay()">Continue to payments</button>
+        <button type="submit" id="payment_${
+          obj.title
+        }" class="fs-5 text-light border-0 donate" onclick="startPayment()">Continue to payments</button>
         </div>    
         </div>
     </div>
