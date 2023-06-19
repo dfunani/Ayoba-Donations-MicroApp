@@ -31,7 +31,7 @@ function getAyoba() {
 function startPayment() {
     var pm = 'Ozow';
     var currency = "ZAR";
-    var amount = 1;
+    var amount = parseFloat(10);
     var description = 'donation';
 
     console.log(pm, amount, currency, description);
@@ -42,7 +42,7 @@ function startPayment() {
 
 function startPaymentOverlay() {
     var currency = "ZAR";
-    var amount = 1;
+    var amount = parseFloat(10);
     var description = 'donation';
 
     console.log(amount, currency, description);
