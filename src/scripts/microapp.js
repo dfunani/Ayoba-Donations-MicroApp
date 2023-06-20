@@ -5,54 +5,54 @@ var Ayoba = getAyoba();
  * proper javascript interface
  */
 function getAyoba() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-        return null;
-    }
+  // Windows Phone must come first because its UA also contains "Android"
+  if (/windows phone/i.test(userAgent)) {
+    return null;
+  }
 
-    if (/android/i.test(userAgent)) {
-        return Android;
-    }
+  if (/android/i.test(userAgent)) {
+    return Android;
+  }
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return null; // todo
-    }
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    return null; // todo
+  }
 
-    return "unknown";
+  return "unknown";
 }
-
 
 // ============================================================= FUNCTIONS ============================================================================
 
-
 function startPayment() {
-    var pm = 'Ozow';
-    var currency = "ZAR";
-    var amount = parseFloat(10);
-    var description = 'donation';
+  var pm = "Ozow";
+  var currency = document.getElementById("currency").dataset.currency;
+  var amount = parseFloat(document.getElementById("currency").value);
+  var description = document.getElementById("textarea").value;
 
-    console.log(pm, amount, currency, description);
+  console.log(pm, amount, currency, description);
 
-    Ayoba.startPayment(pm, amount, currency, description);
+  amount && currency
+    ? Ayoba.startPayment(pm, amount, currency, description)
+    : null;
 }
-
 
 function startPaymentOverlay() {
-    var currency = "ZAR";
-    var amount = parseFloat(10);
-    var description = 'donation';
+  var currency = document.getElementById("currency").dataset.currency;
+  try {
+    var amount = parseFloat(document.getElementById("currency").value);
+  } catch {
+    return null;
+  }
+  var description = document.getElementById("textarea").value;
 
-    console.log(amount, currency, description);
-
-    Ayoba.startPayment(amount, currency, description);
+  amount && currency ? Ayoba.startPayment(amount, currency, description) : null;
 }
 
-
 function onPaymentStatusChanged(transactionId, status, error) {
-    // let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
-    //  document.getElementById("txtPaymentStatusChanged").textContent = res;
-    // txtPaymentStatusChanged.text = res;
+  // let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
+  //  document.getElementById("txtPaymentStatusChanged").textContent = res;
+  // txtPaymentStatusChanged.text = res;
 }
