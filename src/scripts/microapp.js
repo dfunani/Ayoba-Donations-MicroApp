@@ -27,10 +27,11 @@ function getAyoba() {
 // ============================================================= FUNCTIONS ============================================================================
 
 function startPayment() {
-  var pm = "Ozow";
-  var currency = document.getElementById("currency").dataset.currency;
-  var amount = parseFloat(document.getElementById("currency").value);
-  var description = document.getElementById("textarea").value;
+  let inputCurrency = document.getElementById("currency_" + title);
+  let pm = "Ozow";
+  let currency = inputCurrency.dataset.currency;
+  let amount = parseFloat(inputCurrency.value);
+  let description = document.getElementById("textarea").value;
 
   console.log(pm, amount, currency, description);
 
@@ -39,16 +40,16 @@ function startPayment() {
     : null;
 }
 
-function startPaymentOverlay() {
-  var currency = document.getElementById("currency").dataset.currency;
+function startPaymentOverlay(title) {
+  let currency = document.getElementById("currency_" + title);
+  let amount = "";
   try {
-    var amount = parseFloat(document.getElementById("currency").value);
+    amount = parseFloat(currency.value);
   } catch {
     return null;
   }
-  var description = document.getElementById("textarea").value;
-
-  amount && currency ? Ayoba.startPayment(amount, currency, description) : null;
+  let description = document.getElementById("textarea_" + title).value;
+  return amount > 0 && currency ? Ayoba.startPayment(amount, currency.dataset.currency, description) : null;
 }
 
 function onPaymentStatusChanged(transactionId, status, error) {

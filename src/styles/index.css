@@ -214,6 +214,7 @@ div.donateBTN {
 .input-currency{
 	position: relative;
 	width: 100%;
+	max-width: 25em;
 }
 
 .input-textarea{
@@ -249,7 +250,7 @@ div.donateBTN {
 	outline: none !important;
 }
 
-.input-currency > label[for="currency"]{
+.currency-label{
 	position: absolute;
 	top: -16px;
 	right: 130%;
