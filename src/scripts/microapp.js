@@ -33,11 +33,7 @@ function startPayment() {
   let amount = parseFloat(inputCurrency.value);
   let description = document.getElementById("textarea").value;
 
-  console.log(pm, amount, currency, description);
-
-  amount && currency
-    ? Ayoba.startPayment(pm, amount, currency, description)
-    : null;
+  return amount > 0 && currency ? Ayoba.startPayment(pm, amount, currency, description) : null;
 }
 
 function startPaymentOverlay(title) {
