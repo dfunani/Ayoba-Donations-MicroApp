@@ -17,6 +17,8 @@
 
 .scrolling-wrapper{
 	overflow-x: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
 }
 
 body{
@@ -68,6 +70,7 @@ img.card-img-top{
 	justify-content: center;
 	align-items: center;
 	margin: auto;
+	scroll-snap-align: center;
 }
 
 
