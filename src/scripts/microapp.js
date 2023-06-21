@@ -33,12 +33,14 @@ function startPayment(title) {
   let amount = parseFloat(inputCurrency.value);
   let description = document.getElementById("textarea").value;
 
-  return amount > 0 && currency ? Ayoba.startPayment(pm, amount, currency, description) : null;
+  return amount > 0 && currency
+    ? Ayoba.startPayment(pm, amount, currency, description)
+    : null;
 }
 
 function startPaymentOverlay(title) {
   let currency = document.getElementById("currency_" + title);
-  let tag = document.getElementById("tag_" + title);
+  let tag = document.querySelector(".tag_" + title);
   let amount = "";
   try {
     amount = parseFloat(currency.value);
@@ -47,7 +49,16 @@ function startPaymentOverlay(title) {
     return null;
   }
   let description = document.getElementById("textarea_" + title).value;
-  return amount > 0 && currency.dataset.currency ? Ayoba.startPayment(amount, currency.dataset.currency, description) : tag.innerText = "Please provide Amount and Currency";
+  if (amount > 0 && currency.dataset.currency) {
+    try {
+      Ayoba.startPayment(amount, currency.dataset.currency, description);
+      window.location.href = "success.html";
+    } catch {
+      tag.innerText = "Cannot Connect to OZOW";
+    }
+  } else {
+    tag.innerText = "Please provide Amount and Currency";
+  }
 }
 
 function onPaymentStatusChanged(transactionId, status, error) {

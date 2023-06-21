@@ -233,3 +233,7 @@ const reset = (title) => {
   document.getElementById("currency_" + title).value = "";
   document.getElementById("textarea_" + title).value = "";
 }
+
+const donationsApp = () => {
+  window.location.href = "index.html"
+}
