@@ -160,7 +160,7 @@ const createDonationOverlay = (obj) => {
         </a>
 
         <ul class="dropdown-menu dropdown-menu_${obj.title.split(" ").join("")}" aria-labelledby="dropdownMenuLink">
-          ${getCurrency(obj.title)}
+          ${getCurrency(obj.title.split(" ").join(""))}
         </ul>
       </div>
       <div class="input-currency">
@@ -176,8 +176,8 @@ const createDonationOverlay = (obj) => {
   </div>
   <div class="input-btn">
   <button type="submit" id="payment_${
-    obj.title
-  }" class="fs-5 text-light border-0 donate onclick="startPaymentOverlay('${obj.title.split(" ").join("")}')">Continue to payments</button>
+    obj.title.split(" ").join("")
+  }" class="fs-5 text-light border-0 donate" onclick="startPaymentOverlay('${obj.title.split(" ").join("")}')">Continue to payments</button>
   </div>    
   </div>
 </div>`;

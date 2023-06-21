@@ -26,7 +26,7 @@ function getAyoba() {
 
 // ============================================================= FUNCTIONS ============================================================================
 
-function startPayment() {
+function startPayment(title) {
   let inputCurrency = document.getElementById("currency_" + title);
   let pm = "Ozow";
   let currency = inputCurrency.dataset.currency;
@@ -38,15 +38,16 @@ function startPayment() {
 
 function startPaymentOverlay(title) {
   let currency = document.getElementById("currency_" + title);
+  let tag = document.getElementById("tag_" + title);
   let amount = "";
   try {
     amount = parseFloat(currency.value);
   } catch {
+    tag.innerText = "Please valid decimal Amount";
     return null;
   }
   let description = document.getElementById("textarea_" + title).value;
-  console.log(currency, amount, description)
-  return amount > 0 && currency ? Ayoba.startPayment(amount, currency.dataset.currency, description) : null;
+  return amount > 0 && currency.dataset.currency ? Ayoba.startPayment(amount, currency.dataset.currency, description) : tag.innerText = "Please provide Amount and Currency";
 }
 
 function onPaymentStatusChanged(transactionId, status, error) {
