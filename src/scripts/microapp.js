@@ -52,9 +52,9 @@ function startPaymentOverlay(title) {
   if (amount > 0 && currency.dataset.currency) {
     try {
       Ayoba.startPayment(amount, currency.dataset.currency, description);
-      // setTimeout(() => {
-      //   window.location.href = "success.html";
-      // }, 5000);
+      setTimeout(() => {
+        window.location.href = "success.html";
+      }, 5000);
     } catch {
       tag.innerText = "Cannot Connect to OZOW";
     }
