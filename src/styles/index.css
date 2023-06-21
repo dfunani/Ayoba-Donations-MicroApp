@@ -215,7 +215,7 @@ div.donateBTN {
 .input-currency{
 	position: relative;
 	width: 100%;
-	max-width: 60em;
+	max-width: 60vw;
 }
 
 .input-textarea{
