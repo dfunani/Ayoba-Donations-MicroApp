@@ -4,9 +4,17 @@ font-family: "Quicksand", Arial, Helvetica, sans-serif;
 
 .container-fluid{
     min-height: 100vh;
+    position: relative;
 }
 
-.container-fluid > div:nth-child(1){
+.container-fluid > button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2em;
+}
+
+.container-fluid > div:nth-child(2){
     margin-top: 142px;
     color: #0061A1;
     &:hover{
@@ -16,14 +24,14 @@ font-family: "Quicksand", Arial, Helvetica, sans-serif;
 	};
 }
 
-.container-fluid > div:nth-child(2){
+.container-fluid > div:nth-child(3){
     margin-bottom: 71px;
     margin-top: 42px;
     font-size: 30px;
     color: #0061A1;
 }
 
-.container-fluid > div:nth-child(3){
+.container-fluid > div:nth-child(4){
     margin-top: 71px;
     font-size: 24px;
     color: #0061A1;
