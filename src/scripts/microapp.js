@@ -45,6 +45,7 @@ function startPaymentOverlay(title) {
     return null;
   }
   let description = document.getElementById("textarea_" + title).value;
+  console.log(currency, amount, description)
   return amount > 0 && currency ? Ayoba.startPayment(amount, currency.dataset.currency, description) : null;
 }
 
