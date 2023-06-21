@@ -58,8 +58,8 @@ body{
 img.card-img-top{
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
-	max-height: 60vh;
-	min-height: 60vh;
+	max-height: 40vh;
+	min-height: 40vh;
 }
 
 .col-5{
@@ -170,7 +170,7 @@ div.donateBTN {
 }
 
 .donate_overlay{
-	height: 50vh;
+	height: 60vh;
 	border-radius: 8px;
 	width: 100%;
 	background-color: white;
@@ -178,6 +178,7 @@ div.donateBTN {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	overflow-x: hidden;
 }
 
 .input-select{
@@ -214,7 +215,7 @@ div.donateBTN {
 .input-currency{
 	position: relative;
 	width: 100%;
-	max-width: 25em;
+	max-width: 60em;
 }
 
 .input-textarea{

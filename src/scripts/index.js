@@ -168,7 +168,7 @@ const createDonationOverlay = (obj) => {
           <input placeholder="R" type="number" data-currency="ZAR" name="currency" id="currency_${obj.title.split(" ").join("")}" step="0.01">
       </div></div>   
       
-      <div class="tag_${obj.title.split(" ").join("")}">Amount is in South African Rands (ZAR)</div>
+      <div class="tag tag_${obj.title.split(" ").join("")}">Amount is in South African Rands (ZAR)</div>
   
   <div class="input-textarea">
       <label for="textarea_${obj.title.split(" ").join("")}">Message (Optional)</label>
@@ -177,7 +177,7 @@ const createDonationOverlay = (obj) => {
   <div class="input-btn">
   <button type="submit" id="payment_${
     obj.title
-  }" class="fs-5 text-light border-0 donate fixed-bottom" onclick="startPaymentOverlay('${obj.title.split(" ").join("")}')">Continue to payments</button>
+  }" class="fs-5 text-light border-0 donate onclick="startPaymentOverlay('${obj.title.split(" ").join("")}')">Continue to payments</button>
   </div>    
   </div>
 </div>`;
