@@ -58,6 +58,7 @@ Project Available on the Ayoba (PRE) Mobile App
 
 ## Project Structure
 
+```structure
 ├── src
 │   ├── assets
 │   │   ├── arrow-left.svg
@@ -75,3 +76,4 @@ Project Available on the Ayoba (PRE) Mobile App
 ├── index.html
 ├── README.md
 └── success.html
+```
