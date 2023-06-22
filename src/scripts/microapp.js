@@ -49,10 +49,9 @@ function startPaymentOverlay(title) {
     return null;
   }
   let description = document.getElementById("textarea_" + title).value;
-  if (amount >= 0 && currency.dataset.currency) {
+  if (amount > 0 && currency.dataset.currency) {
     try {
-      Ayoba.startPayment(amount, currency.dataset.currency, description).then(res => console.log(res))
-      // window.location.href = "success.html";
+      Ayoba.startPayment(amount, currency.dataset.currency, description);
     } catch {
       tag.innerText = "Cannot Connect to OZOW";
     }
@@ -62,11 +61,10 @@ function startPaymentOverlay(title) {
 }
 
 function onPaymentStatusChanged(transactionId, status, error) {
-  // let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
-  //  document.getElementById("txtPaymentStatusChanged").textContent = res;
-  // txtPaymentStatusChanged.text = res;
+  let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
+  console.log(res)
+  // window.location.href = "success.html";
 }
-
 
 function getCountry(){
   try{
