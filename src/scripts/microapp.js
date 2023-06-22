@@ -76,8 +76,9 @@ function onPaymentStatusChanged(transactionId, status, error) {
   const toastElem = document.getElementById("toast_" + TITLE);
   const toastBody = document.getElementById("toast_body_" + TITLE);
   const toast = new bootstrap.Toast(toastElem);
+  console.log(res)
   if (!reg.test(status)) {
-    toastBody.innerHTML = error ? error : "Request was Unsuccessful"
+    toastBody.innerHTML = "Request was Unsuccessful"
     toast.show()
   }
   else{
