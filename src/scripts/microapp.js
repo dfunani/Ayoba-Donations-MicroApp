@@ -38,7 +38,7 @@ function startPayment(title) {
     : null;
 }
 
-function startPaymentOverlay(title) {
+async function startPaymentOverlay(title) {
   let currency = document.getElementById("currency_" + title);
   let tag = document.querySelector(".tag_" + title);
   let amount = "";
@@ -49,12 +49,11 @@ function startPaymentOverlay(title) {
     return null;
   }
   let description = document.getElementById("textarea_" + title).value;
-  if (amount > 0 && currency.dataset.currency) {
+  if (amount >= 0 && currency.dataset.currency) {
     try {
-      Ayoba.startPayment(amount, currency.dataset.currency, description);
-      setTimeout(() => {
-        window.location.href = "success.html";
-      }, 5000);
+      let res = await Ayoba.startPayment(amount, currency.dataset.currency, description);
+      console.log(res)
+      // window.location.href = "success.html";
     } catch {
       tag.innerText = "Cannot Connect to OZOW";
     }
