@@ -19,14 +19,28 @@ const regionNamesInEnglish = new Intl.DisplayNames(["en"], { type: "region" });
 // Page Entry Point
 window.onload = async (event) => {
   const scroller = document.querySelector(".scrolling-wrapper");
-  CHARITIES = await fetch(STRAPI + "/api/ayoba-donations-app-charities?populate[0]=micro_app&populate[1]=micro_app.countries")
+  CHARITIES = await fetch(
+    STRAPI +
+      "/api/ayoba-donations-app-charities?populate[0]=micro_app&populate[1]=micro_app.countries"
+  )
     .then((res) => res.json())
     .then((result) => result.data)
     .catch(() => []);
+
+  // Returns users Country Code
   userCountry = getCountry();
-  userCountry = !userCountry ? "ZA" : userCountry
-  const countryName = regionNamesInEnglish.of(userCountry)
-  CHARITIES.filter((elem) => elem.attributes.micro_app.data.attributes.countries.map((x) => JSON.parse(x.name)).flat().includes(countryName)).forEach((element) => {
+  userCountry = !userCountry ? "ZA" : userCountry;
+
+  //Returns Country Name from User Country Code
+  const countryName = regionNamesInEnglish.of(userCountry);
+
+  // Rendering Entry Point
+  CHARITIES.filter((elem) =>
+  !elem.attributes.micro_app.data.attributes.countries || Array.isArray(elem.attributes.micro_app.data.attributes.countries) && !elem.attributes.micro_app.data.attributes.countries.length || elem.attributes.micro_app.data.attributes.countries
+      .map((x) => JSON.parse(x.name))
+      .flat()
+      .includes(countryName)
+  ).forEach((element) => {
     scroller.innerHTML += createCharity(element.attributes);
   });
 };

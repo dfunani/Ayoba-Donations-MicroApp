@@ -72,7 +72,7 @@ function onPaymentStatusChanged(transactionId, status, error) {
 
 function getCountry(){
   try{
-  return Ayoba.getCountry()
+    return Ayoba.getCountry()
   }catch{
     return "ZA"
   }
