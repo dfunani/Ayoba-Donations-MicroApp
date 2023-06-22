@@ -2,6 +2,10 @@
   color: #0061a1;
 }
 
+.container-fluid{
+	position: relative;
+}
+
 .search-icon {
     max-width: 475px;
     border-radius: 5em;

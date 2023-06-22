@@ -1,5 +1,5 @@
 var Ayoba = getAyoba();
-
+let TITLE = "";
 /**
  * Determine the mobile operating system and returns the
  * proper javascript interface
@@ -39,39 +39,57 @@ function startPayment(title) {
 }
 
 function startPaymentOverlay(title) {
+  TITLE = title;
   let currency = document.getElementById("currency_" + title);
   let tag = document.querySelector(".tag_" + title);
   let amount = "";
+  const toastElem = document.getElementById("toast_" + title);
+  const toastBody = document.getElementById("toast_body_" + title);
+  const toast = new bootstrap.Toast(toastElem);
+
   try {
     amount = parseFloat(currency.value);
   } catch {
-    tag.innerText = "Please valid decimal Amount";
+    toastBody.innerHTML = "Currency Amount must be decimal";
+    toast.show();
     return null;
   }
+
   let description = document.getElementById("textarea_" + title).value;
+
   if (amount > 0 && currency.dataset.currency) {
     try {
       Ayoba.startPayment(amount, currency.dataset.currency, description);
     } catch {
-      tag.innerText = "Cannot Connect to OZOW";
+      toastBody.innerHTML = "Could not connect to Ozow";
+      toast.show();
     }
   } else {
-    tag.innerText = "Please provide Amount and Currency";
+    toastBody.innerHTML = "Please Provide a valid Amount and Currency";
+    toast.show();
   }
 }
 
 function onPaymentStatusChanged(transactionId, status, error) {
-  let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
-  console.log(res)
-  let tag = document.querySelector(".tag_" + title);
-  tag.innerHTML = res
-  // window.location.href = "success.html";
+  let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
+  const reg = new RegExp("success*", "i");
+  const toastElem = document.getElementById("toast_" + TITLE);
+  const toastBody = document.getElementById("toast_body_" + TITLE);
+  const toast = new bootstrap.Toast(toastElem);
+  if (!reg.test(status)) {
+    toastBody.innerHTML = error ? error : "Request was Unsuccessful"
+    toast.show()
+  }
+  else{
+    window.location.href = "success.html";
+  }
+  TITLE = ""
 }
 
-function getCountry(){
-  try{
-    return Ayoba.getCountry()
-  }catch{
-    return "ZA"
+function getCountry() {
+  try {
+    return Ayoba.getCountry();
+  } catch {
+    return "ZA";
   }
 }

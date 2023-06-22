@@ -229,8 +229,21 @@ const createDonationOverlay = (obj) => {
     )}" class="fs-5 text-light border-0 donate" onclick="startPaymentOverlay('${obj.title
     .split(" ")
     .join("")}')">Continue to payments</button>
-  </div>    
   </div>
+  
+  </div>
+  <div class="toast align-items-center m-auto fixed-bottom text-white bg-danger border-0" id="toast_${obj.title
+    .split(" ")
+    .join("")}" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body" id="toast_body_${obj.title
+            .split(" ")
+            .join("")}">
+            Error Failed
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>   
 </div>`;
 };
 
