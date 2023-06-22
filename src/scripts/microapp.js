@@ -72,19 +72,20 @@ function startPaymentOverlay(title) {
 
 function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
-  const reg = new RegExp("success*", "i");
+  const regSuccess = new RegExp("success*", "i");
+  const regProgress = new RegExp("*progress*", "i");
   const toastElem = document.getElementById("toast_" + TITLE);
   const toastBody = document.getElementById("toast_body_" + TITLE);
   const toast = new bootstrap.Toast(toastElem);
   console.log(res)
-  if (!reg.test(status)) {
+  if (!regSuccess.test(status) && !regProgress.test(status)) {
     toastBody.innerHTML = "Request was Unsuccessful"
     toast.show()
   }
-  else{
+  else if(regSuccess.test(status)){
     window.location.href = "success.html";
+    TITLE = ""
   }
-  TITLE = ""
 }
 
 function getCountry() {
