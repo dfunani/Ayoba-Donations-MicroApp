@@ -68,3 +68,12 @@ function onPaymentStatusChanged(transactionId, status, error) {
   //  document.getElementById("txtPaymentStatusChanged").textContent = res;
   // txtPaymentStatusChanged.text = res;
 }
+
+
+function getCountry(){
+  try{
+  return Ayoba.getCountry()
+  }catch{
+    return "ZA"
+  }
+}
