@@ -63,6 +63,8 @@ function startPaymentOverlay(title) {
 function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID:  ${transactionId}  Status:  ${status} Error: ${error} `;
   console.log(res)
+  let tag = document.querySelector(".tag_" + title);
+  tag.innerHTML = res
   // window.location.href = "success.html";
 }
 
