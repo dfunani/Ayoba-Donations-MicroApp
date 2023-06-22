@@ -73,7 +73,7 @@ function startPaymentOverlay(title) {
 function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
   const regSuccess = new RegExp("success", "i");
-  const regProgress = new RegExp("*progress", "i");
+  const regProgress = new RegExp("in progress", "i");
   const toastElem = document.getElementById("toast_" + TITLE);
   const toastBody = document.getElementById("toast_body_" + TITLE);
   const toast = new bootstrap.Toast(toastElem);
