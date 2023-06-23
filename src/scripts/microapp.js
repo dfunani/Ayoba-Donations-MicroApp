@@ -1,5 +1,7 @@
 var Ayoba = getAyoba();
 let TITLE = "";
+let toastElem = null
+let toastBody = null
 /**
  * Determine the mobile operating system and returns the
  * proper javascript interface
@@ -43,8 +45,8 @@ function startPaymentOverlay(title) {
   let currency = document.getElementById("currency_" + title);
   let tag = document.querySelector(".tag_" + title);
   let amount = "";
-  const toastElem = document.getElementById("toast_" + title);
-  const toastBody = document.getElementById("toast_body_" + title);
+  toastElem = document.getElementById("toast_" + title);
+  toastBody = document.getElementById("toast_body_" + title);
   const toast = new bootstrap.Toast(toastElem);
 
   try {
@@ -74,8 +76,7 @@ function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
   const regSuccess = new RegExp("Success", "i");
   const regProgress = new RegExp("In progress", "i");
-  const toastElem = document.getElementById("toast_" + TITLE);
-  const toastBody = document.getElementById("toasts_body_" + TITLE);
+  
   const toast = new bootstrap.Toast(toastElem);
   console.log(res)
   if (!regSuccess.test(status) && !regProgress.test(status)) {
