@@ -78,15 +78,12 @@ function onPaymentStatusChanged(transactionId, status, error) {
   const regProgress = new RegExp("In progress", "i");
   
   const toast = new bootstrap.Toast(toastElem);
-  console.log(res)
   if (!regSuccess.test(status) && !regProgress.test(status)) {
     toastBody.innerHTML = "Request was Unsuccessful"
     toast.show()
   }
   else if(regSuccess.test(status)){
-    //window.location.href = "success.html";
-    toastBody.innerHTML = "Request was Successful"
-    toast.show()
+    window.location.href = "success.html";
     TITLE = ""
   }
 }
