@@ -1,7 +1,7 @@
 // GLOBAL LIST OF CHARITIES
 let CHARITIES = [];
 // Strapi base URL
-const STRAPI = "https://devstrapi.thedigitalacademy.co.za";
+const STRAPI = "https://devportaladmin.thedigitalacademy.co.za";
 // Static Currency Icons
 const CURRENCIES = [
   {
