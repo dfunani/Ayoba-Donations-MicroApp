@@ -10,6 +10,7 @@ const CURRENCIES = [
     currency: {
       name: "Rands",
       code: "ZAR",
+      symbol: "R"
     },
   },
 ];
@@ -154,7 +155,7 @@ const description = (title, description) => {
     description.split(".").slice(0, 2).join(".") +
     `.<br/><a onclick="learnMore('${title}', '${description
       .split("\n")
-      .join(" ")}')">learn more ></a>`
+      .join(" ")}')" class="text-primary">learn more ></a>`
   );
 };
 
@@ -184,7 +185,7 @@ const createDonationOverlay = (obj) => {
           <img onclick="back('${obj.title
             .split(" ")
             .join("")}')" src="src/assets/arrow-left.svg" alt="...">
-          <div class="fs-2">Donate to ${obj.title}</div>
+          <div class="fs-2 text-wrap w-75">Donate to ${obj.title}</div>
       </div>
   <div class="input-select input-currency-select">
       <div class="dropdown">
@@ -200,11 +201,14 @@ const createDonationOverlay = (obj) => {
           ${getCurrency(obj.title.split(" ").join(""))}
         </ul>
       </div>
+      <div class="me-1 placeholder placeholder_${obj.title
+            .split(" ")
+            .join("")}">R</div>
       <div class="input-currency">
           <label for="currency_${obj.title
             .split(" ")
             .join("")}" class="currency-label">Donation Amount</label>
-          <input placeholder="R" type="number" data-currency="ZAR" name="currency" id="currency_${obj.title
+          <input type="number" data-currency="ZAR" name="currency" id="currency_${obj.title
             .split(" ")
             .join("")}" step="0.01">
       </div></div>   
@@ -250,22 +254,24 @@ const createDonationOverlay = (obj) => {
 /* Helper Functions */
 // Set Data Attributes for the input based
 // on the dropdown currency selected
-const setCurrency = (title, icon, country, name, code) => {
+const setCurrency = (title, icon, country, name, code, symbol) => {
   const currencyDropdown = document.querySelector(
     ".dropdown_currency_" + title
   );
   const inputTag = document.querySelector(".tag_" + title);
+  const placeholder = document.querySelector(".placeholder_" + title)
   const inputBox = document.getElementById("currency_" + title);
   currencyDropdown.src = icon;
   inputTag.innerHTML = `Amount is in ${country} ${name} (${code})`;
   inputBox.dataset.currency = code;
+  placeholder.innerHTML = symbol
 };
 
 // Gets the currency from the drop down - If selected
 const getCurrency = (title) => {
   return CURRENCIES.map(
     (elem) =>
-      `<li onclick="setCurrency('${title}', '${elem.icon}', '${elem.country}', '${elem.currency.name}', '${elem.currency.code}')"><a class="dropdown-item" href="#">${elem.country}</a></li>`
+      `<li onclick="setCurrency('${title}', '${elem.icon}', '${elem.country}', '${elem.currency.name}', '${elem.currency.code}', '${elem.currency.symbol}')"><a class="dropdown-item" href="#">${elem.country}</a></li>`
   ).join("");
 };
 

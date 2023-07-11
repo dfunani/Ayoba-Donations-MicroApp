@@ -66,6 +66,7 @@ img.card-img-top{
     border-top-right-radius: 2em;
 	max-height: 40vh;
 	min-height: 40vh;
+    object-fit: cover;
 }
 
 .col-5{
@@ -241,7 +242,7 @@ div.donateBTN {
 	color: #0061A2;
 }
 
-.input-currency > input::placeholder{
+.placeholder{
 	font-size: x-large;
 	color: #0061A2;
 }
