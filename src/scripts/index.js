@@ -230,7 +230,7 @@ const createDonationOverlay = (obj) => {
     .split(" ")
     .join(
       ""
-    )}" class="fs-5 text-light border-0 donate" onclick="startPaymentOverlay('${obj.title
+    )}" class="fs-5 text-light border-0 donate mb-2" onclick="startPaymentOverlay('${obj.title
     .split(" ")
     .join("")}')">Continue to payments</button>
   </div>

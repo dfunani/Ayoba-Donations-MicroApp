@@ -65,7 +65,6 @@ function startPaymentOverlay(title) {
     try {
       Ayoba.startPayment(amount, currency.dataset.currency, description);
       donateBTN.disabled = true;
-      donateBTN.innerHTML = "Clicked"
     } catch {
       toastBody.innerHTML = "Could not connect to Ozow";
       toast.show();
@@ -83,7 +82,6 @@ function onPaymentStatusChanged(transactionId, status, error) {
   console.log(res);
   const toast = new bootstrap.Toast(toastElem);
   donateBTN.disabled = false;
-  donateBTN.innerHTML = "Unclicked"
   if (!regSuccess.test(status) && !regProgress.test(status)) {
     toastBody.innerHTML = "Request was Unsuccessful";
     toast.show();
