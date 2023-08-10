@@ -1,7 +1,8 @@
 var Ayoba = getAyoba();
-let TITLE = "";
-let toastElem = null
-let toastBody = null
+var TITLE = "";
+var donateBTN = null
+var toastElem = null;
+var toastBody = null;
 /**
  * Determine the mobile operating system and returns the
  * proper javascript interface
@@ -48,6 +49,7 @@ function startPaymentOverlay(title) {
   toastElem = document.getElementById("toast_" + title);
   toastBody = document.getElementById("toast_body_" + title);
   const toast = new bootstrap.Toast(toastElem);
+  donateBTN = document.getElementById("payment_" + title);
 
   try {
     amount = parseFloat(currency.value);
@@ -62,6 +64,8 @@ function startPaymentOverlay(title) {
   if (amount > 0 && currency.dataset.currency) {
     try {
       Ayoba.startPayment(amount, currency.dataset.currency, description);
+      donateBTN.disabled = true;
+      donateBTN.innerHTML = "Clicked"
     } catch {
       toastBody.innerHTML = "Could not connect to Ozow";
       toast.show();
@@ -76,15 +80,16 @@ function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
   const regSuccess = new RegExp("Success", "i");
   const regProgress = new RegExp("In progress", "i");
-  console.log(res)
+  console.log(res);
   const toast = new bootstrap.Toast(toastElem);
+  donateBTN.disabled = false;
+  donateBTN.innerHTML = "Unclicked"
   if (!regSuccess.test(status) && !regProgress.test(status)) {
-    toastBody.innerHTML = "Request was Unsuccessful"
-    toast.show()
-  }
-  else if(regSuccess.test(status)){
+    toastBody.innerHTML = "Request was Unsuccessful";
+    toast.show();
+  } else if (regSuccess.test(status)) {
     window.location.href = "success.html";
-    TITLE = ""
+    TITLE = "";
   }
 }
 

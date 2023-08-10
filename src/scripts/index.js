@@ -138,7 +138,7 @@ const createCharityModal = (obj) => {
     .split(" ")
     .join(
       ""
-    )}" class="fs-5 text-light fixed-bottom border-0 donate">Donate</button>
+    )}" class="fs-5 text-light fixed-bottom border-0 donate mb-2">Donate</button>
     </p>
     ${createDonationOverlay(obj)}
   </div>
@@ -236,7 +236,7 @@ const createDonationOverlay = (obj) => {
   </div>
   
   </div>
-  <div class="toast align-items-center m-auto fixed-bottom text-white bg-danger border-0" id="toast_${obj.title
+  <div class="toast align-items-center m-auto text-white bg-danger border-0" id="toast_${obj.title
     .split(" ")
     .join("")}" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
