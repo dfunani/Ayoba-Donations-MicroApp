@@ -83,10 +83,9 @@ function onPaymentStatusChanged(transactionId, status, error) {
   const toast = new bootstrap.Toast(toastElem);
   donateBTN.disabled = true;
   if (!regSuccess.test(status) && !regProgress.test(status)) {
-    if(status === 'cancel' || status === 'failed'){
     toastBody.innerHTML = "Request was Unsuccessful";
     donateBTN.disabled = false;
-    toast.show();}
+    toast.show();
   } else if (regSuccess.test(status)) {
     donateBTN.disabled = false;
     window.location.href = "success.html";
