@@ -3,7 +3,6 @@ var TITLE = "";
 var donateBTN = null
 var toastElem = null;
 var toastBody = null;
-var paymentStatus = "";
 
 /**
  * Determine the mobile operating system and returns the
@@ -81,6 +80,7 @@ function onPaymentStatusChanged(transactionId, status, error) {
   paymentStatus = status;
   const regSuccess = new RegExp("Success", "i");
   const regProgress = new RegExp("In progress", "i");
+  const regCancel = new RegExp("Cancel", "i");
   console.log(res);
   const toast = new bootstrap.Toast(toastElem);
   // donateBTN.disabled = true;
@@ -88,6 +88,9 @@ function onPaymentStatusChanged(transactionId, status, error) {
     toastBody.innerHTML = "Request was Unsuccessful";
     donateBTN.disabled = false;
     toast.show();
+    if(regCancel.test(status)){
+      location.reload();
+    }
   } else if (regSuccess.test(status)) {
     donateBTN.disabled = false;
     window.location.href = "success.html";
@@ -95,10 +98,7 @@ function onPaymentStatusChanged(transactionId, status, error) {
   }
 }
 
-function getPaymentStatus() {
-  console.log("Payment Status: " + paymentStatus);
-}
-console.log("Out side Payment Status: " + paymentStatus);
+
 
 getPaymentStatus();
 function getCountry() {
