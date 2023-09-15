@@ -3,6 +3,8 @@ var TITLE = "";
 var donateBTN = null
 var toastElem = null;
 var toastBody = null;
+var paymentStatus = "";
+
 /**
  * Determine the mobile operating system and returns the
  * proper javascript interface
@@ -74,9 +76,9 @@ function startPaymentOverlay(title) {
     toast.show();
   }
 }
-
 function onPaymentStatusChanged(transactionId, status, error) {
   let res = `Transaction ID: ${transactionId}, Status: ${status}, Error: ${error}`;
+  paymentStatus = status;
   const regSuccess = new RegExp("Success", "i");
   const regProgress = new RegExp("In progress", "i");
   console.log(res);
@@ -93,6 +95,12 @@ function onPaymentStatusChanged(transactionId, status, error) {
   }
 }
 
+function getPaymentStatus() {
+  console.log("Payment Status: " + paymentStatus);
+}
+console.log("Out side Payment Status: " + paymentStatus);
+
+getPaymentStatus();
 function getCountry() {
   try {
     return Ayoba.getCountry();
