@@ -77,3 +77,18 @@ Project Available on the Ayoba (PRE) Mobile App
 ├── README.md
 └── success.html
 ```
+## Errors you will encounter
+When user cancel the payment in Ozow and when it returns to donation app the Ozow page in the background does not close. When user try to pay again it show unsuccessful because the first Ozow page is still open, that why is not showing and the second we just open in the background but not in the frontend.
+
+#### User makes a donation
+![user_makes_donation](/src/assets/Screenshot_2023_09_15_at_11.30.43_2_.png)
+#### User cancling the payment
+![cancel_payment](/src/assets/WhatsApp_Image_2023_09_15_at_11.24.18.jpeg)
+#### User tries to make another payment, but the user is not redirect to Ozow. The payment status says cancel.
+![not_redirect](/src/assets/Screenshot_2023_09_15_at_11.16.48_2.png)
+![not_redirect](/src/assets/Screenshot_2023_09_15_at_11.27.54_2.png)
+![not_redirect](/src/assets/Screenshot_2023_09_15_at_11.28.11_2.png)
+
+#### Proof that ozow is still running the background
+![ozow_running_backgroung](/src/assets/Screenshot_2023_09_15_at_11.53.09_2.png)
+![ozow_running_backgroung](/src/assets/Screenshot_2023_09_15_at_11.53.28_2.png)
