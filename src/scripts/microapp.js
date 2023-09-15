@@ -64,7 +64,7 @@ function startPaymentOverlay(title) {
   if (amount > 0 && currency.dataset.currency) {
     try {
       Ayoba.startPayment(amount, currency.dataset.currency, description);
-      // donateBTN.disabled = true;
+      donateBTN.disabled = true;
     } catch {
       toastBody.innerHTML = "Could not connect to Ozow";
       toast.show();
@@ -81,7 +81,7 @@ function onPaymentStatusChanged(transactionId, status, error) {
   const regProgress = new RegExp("In progress", "i");
   console.log(res);
   const toast = new bootstrap.Toast(toastElem);
-  donateBTN.disabled = true;
+  // donateBTN.disabled = true;
   if (!regSuccess.test(status) && !regProgress.test(status)) {
     toastBody.innerHTML = "Request was Unsuccessful";
     donateBTN.disabled = false;
